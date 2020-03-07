@@ -22,7 +22,10 @@ jobs:
       run: printenv
 
     - name: Listing directories
-      run: ls -l ${{ runner.temp }}
+      run: |
+        ls -l ${{ runner.temp }}
+        ls -l ${{ runner.temp }}/_github_home
+        ls -l ${{ runner.temp }}/_github_workflow
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
