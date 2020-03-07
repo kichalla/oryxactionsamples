@@ -18,6 +18,9 @@ jobs:
         platform: python
         platform-version: 3.7
 
+    - name: Print variables
+      run: printenv
+
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
       with:
