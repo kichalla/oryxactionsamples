@@ -21,6 +21,9 @@ jobs:
     - name: Print variables
       run: printenv
 
+    - name: Listing directories
+      run: ls -l ${{ runner.temp }}
+
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
       with:
