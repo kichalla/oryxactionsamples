@@ -1,3 +1,5 @@
+name: DeployPythonApp
+
 on:
   push:
     branches:
@@ -10,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build app using Oryx v2-beta and CDN
-      uses: Azure/appservice-build@kichalla/use.cdn
+      uses: kichalla/oryxaction@master
       with:
         source-directory: sampleApps/python/django-app
         platform: python
@@ -19,6 +21,6 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
       with:
-        app-name: v2beta-python-sampleapp
-        publish-profile: ${{ secrets.v2betaPythonSampleApp }}
+        app-name: kichallaFlaskApp37
+        publish-profile: ${{ secrets.kichallapythonapp }}
         package: sampleApps/python/django-app
