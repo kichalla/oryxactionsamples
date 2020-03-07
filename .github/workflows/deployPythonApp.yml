@@ -26,4 +26,4 @@ jobs:
       with:
         app-name: kichallaFlaskApp37
         publish-profile: ${{ secrets.kichallapythonapp }}
-        package: ${{ $RUNNER_TEMP/oryx-output }}
+        package: ${{ env.RUNNER_TEMP }}/oryx-output
