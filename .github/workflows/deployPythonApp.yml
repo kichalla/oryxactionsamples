@@ -12,20 +12,19 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build app using Oryx v2-beta and CDN
-      uses: kichalla/oryxaction@master
+      uses: Azure/appservice-build@kichalla/use.cdn
       with:
         source-directory: sampleApps/python/django-app
         platform: python
         platform-version: 3.7
 
-    - name: Print variables
-      run: printenv
-
-    - name: Listing directories
+    - name: Printing image info
       run: |
-        ls -l ${{ runner.temp }}
-        ls -l ${{ runner.temp }}/_github_home
-        ls -l ${{ runner.temp }}/_github_workflow
+        docker inspect buildpack-deps:stretch
+        echo
+        echo -----------------------------------------
+        echo
+        docker inspect mcr.microsoft.com/oryx/build:github-actions-20200310.1
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
